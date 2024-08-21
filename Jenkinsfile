@@ -12,8 +12,6 @@ pipeline {
 
     stages {
         stage('Code Compilation') {
-            when {
-                branch 'dev'}
             steps {
                 echo 'Code Compilation is In Progress!'
                 sh 'mvn clean compile'
@@ -22,8 +20,6 @@ pipeline {
         }
 
         stage('Code QA Execution') {
-            when {
-               branch 'dev'}
             steps {
                 echo 'JUnit Test Case Check in Progress!'
                 sh 'mvn clean test'
@@ -31,8 +27,6 @@ pipeline {
             }
         }
         stage('Code Package') {
-             when {
-                branch 'dev'}
             steps {
                 echo 'Creating WAR Artifact'
                 sh 'mvn clean package'
